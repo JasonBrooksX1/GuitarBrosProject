@@ -3,12 +3,14 @@ package com.guitarbros.java;
 public class Guitar {
     private String guitarType;
     private int guitarCount;
+    private String thingType;
 
 
-    public Guitar(String guitarType, int guitarCount) {
+    public Guitar(String guitarType, String thingType, int guitarCount) {
 
-        this.guitarType= guitarType;
+        this.guitarType = guitarType;
         this.guitarCount = guitarCount;
+        this.thingType = thingType;
     }// end constructor*/
 
 
@@ -20,10 +22,19 @@ public class Guitar {
         return guitarType;
     }
 
-    protected void setWindowSize(int value) {
+    protected void setThingType(String value) {
+        thingType = value;
+    }
+
+    protected String getThingType() {
+        return thingType;
+    }
+
+
+    protected void setorderSize(int value) {
         guitarCount = value;
     }
-    protected int getWindowSize() {
+    protected int getorderSize() {
         return guitarCount;
     }
 
