@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 class GuitarOrder {
     private List<Guitar> myOrder;
-    private int winSize, colorNum;
+    private int orderSize, colorNum;
     private Scanner in;
-    private String colorDoor;
+    private String guitarType;
     private boolean isValueRight;
 
     public GuitarOrder() {
@@ -28,24 +28,21 @@ class GuitarOrder {
         System.out.println("Your dream guitar is waiting");
         windowSize();
         doorColor();
-        myOrder.add(new Guitar(colorDoor, winSize));
+        myOrder.add(new Guitar(guitarType, orderSize));
         orderDone();
     }
 
     private void printResult() {
-        System.out.println("My guitars are listed below");
+        System.out.println("Your guitars are listed below");
         for (Guitar myHouse : myOrder) {
-            System.out.println("Your Guitar has the following: ");
-            System.out.println(myHouse.getWindowSize() +"guitars");
-            System.out.println(myHouse.getRoofType() + "");
+            System.out.println("Your guitar order has the following: ");
+            System.out.println(myHouse.getWindowSize() +" guitars");
             System.out.println(myHouse.getGuitarType() + "");
-            System.out.println(myHouse.getFoundation() + "");
             System.out.println();
         }
     }
 
     private void orderDone() {
-        // Does this complete your order
         System.out.println("Does this complete your order? Y for yes, N for no");
         String val = in.next();
         switch (val) {
@@ -67,7 +64,6 @@ class GuitarOrder {
 
     private void doorColor() {
         System.out.println("What guitar type would you prefer?");
-        //1 for Red, 2 for Blue, 3 for Green
         System.out.println("Press 1 for Electric, 2 for Acoustic or 3 for Hybrid");
         if(!verifyNumberInput()) {
             System.out.println("You have entered an incorrect value. Please try again");
@@ -79,13 +75,13 @@ class GuitarOrder {
             } else {
                 switch (colorNum) {
                     case 1:
-                        colorDoor = "Electric";
+                        guitarType = "Electric";
                         break;
                     case 2:
-                        colorDoor = "Acoustic";
+                        guitarType = "Acoustic";
                         break;
                     default:
-                        colorDoor = "Hybrid";
+                        guitarType = "Hybrid";
                         break;
                 }
             }
@@ -97,7 +93,7 @@ class GuitarOrder {
         in = new Scanner(System.in);
         isValueRight = false;
         try {
-            winSize = in.nextInt();
+            orderSize = in.nextInt();
         } catch (InputMismatchException ex) {
             System.out.println("You have entered an incorrect value. Please try again");
             windowSize();
