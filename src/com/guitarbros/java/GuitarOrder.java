@@ -5,8 +5,8 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+public class GuitarOrder {
 
-class GuitarOrder {
     private List<Guitar> myOrder;
     private int orderSize, varType;
     private Scanner in;
@@ -16,7 +16,6 @@ class GuitarOrder {
 
     public GuitarOrder() {
         myOrder = new ArrayList<>();
-
     }
 
     public void welcomeMessage() {
@@ -28,21 +27,119 @@ class GuitarOrder {
     private void buildHouse() {
         System.out.println("Your dream guitar is waiting");
         varChoice();
-        varChoice1();
-        shipSize();
         myOrder.add(new Guitar(instrumentType,thingType,orderSize));
         orderDone();
     }
 
+
+    private void varChoice() {
+        System.out.println("What guitar type would you prefer?");
+        System.out.println("Press 1 for Electric, 2 for Acoustic or 3 for Hybrid");
+        if(!verifyNumberInput()) {
+            System.out.println("You have entered an incorrect value. Please try again");
+            varChoice();
+        } else {
+            if(varType > 3) {
+                System.out.println("You have entered a number larger than 3. Please try again");
+                varChoice();
+            } else {
+                switch (varType) {
+                    case 1:
+                        instrumentType = "Electric";
+                        varChoice2();
+                        break;
+                    case 2:
+                        instrumentType = "Acoustic";
+                        varChoice3();
+                        break;
+                    default:
+                        instrumentType = "Hybrid";
+                        varChoice4();
+                        break;
+
+                }
+            }
+        }
+    }
+
+    private void varChoice2() {
+        System.out.println("What style would you prefer?");
+        System.out.println("Press 1 for Fender Stratocaster, 2 for Gibson Les Paul or 3 for Gibson Flying V");
+        if(!verifyNumberInput()) {
+            System.out.println("You have entered an incorrect value. Please try again");
+            varChoice2();
+        } else {
+            if(varType > 3) {
+                System.out.println("You have entered a number larger than 3. Please try again");
+                varChoice2();
+            } else {
+                switch (varType) {
+                    case 1:
+                        thingType = "$700 Fender Stratocaster - model#EG6400, UPC# 1132438488";
+                        break;
+                    case 2:
+                        thingType = "$600 Gibson Les Paul - model#EG7400, UPC# 1135327446";
+                        break;
+                    default:
+                        thingType = "$1200 Gibson Flying V - model#EG8600, UPC# 1136433398";
+                        break;
+
+                }
+            }
+        }
+    }
+
+    private void varChoice3() {
+        System.out.println("What style would you prefer?");
+        System.out.println("Press 1 for Dreadnaught, 2 for Parlour or 3 for Auditorium");
+        if(!verifyNumberInput()) {
+            System.out.println("You have entered an incorrect value. Please try again");
+            varChoice3();
+        } else {
+            if(varType > 3) {
+                System.out.println("You have entered a number larger than 3. Please try again");
+                varChoice3();
+            } else {
+                switch (varType) {
+                    case 1:
+                        thingType = "$200 Dreadnought - model#  AG3219, UPC# 3534019753";
+                        break;
+                    case 2:
+                        thingType = "$250 Parlour - model# AG3319, UPC# 3536528647";
+                        break;
+                    default:
+                        thingType = "$400 Auditorium - model# AG4019, UPC# 3538607326";
+                        break;
+
+                }
+            }
+        }
+    }
+
+    private void varChoice4() {
+        System.out.println("You have chosen our specialty Hybrid guitar. Congratulations!");
+        thingType = "$2000 Acoustic/electric hybrid - model# HB00001,  UPC# 3538600001";
+    }
+
+    /*private void shipSize() {
+        System.out.println("How many guitars would you like?");
+        in = new Scanner(System.in);
+        isValueRight = false;
+        try {
+            orderSize = in.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("You have entered an incorrect value. Please try again");
+            shipSize();
+        }
+    }*/
     private void printResult() {
         System.out.println("THANK YOU");
+        System.out.println("Your guitar order has the following: ");
         for (Guitar myGuitar : myOrder) {
-            System.out.println("Your guitar order has the following: ");
-            System.out.println(myGuitar.getorderSize() +" guitars ");
-            //NEED A PLURALIZATION SYSTEM IN CASE MORE THAN 1 IS CHOSEN! "guitar or guitar's
-            System.out.println(myGuitar.getGuitarType() + "");
+
+            //System.out.println(myGuitar.getorderSize() +" guitars ");
+            //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
-            System.out.println();
         }
     }
 
@@ -60,95 +157,10 @@ class GuitarOrder {
                 break;
             default:
                 System.out.println("You have entered an incorrect value. Please try again");
-                orderDone();
                 break;
+
         }
 
-    }
-
-    private void varChoice() {
-        System.out.println("What guitar type would you prefer?");
-        System.out.println("Press 1 for Electric, 2 for Acoustic or 3 for Hybrid");
-        if(!verifyNumberInput()) {
-            System.out.println("You have entered an incorrect value. Please try again");
-            varChoice();
-        } else {
-            if(varType > 3) {
-                System.out.println("You have entered a number larger than 3. Please try again");
-                varChoice();
-            } else {
-                switch (varType) {
-                    case 1:
-                        instrumentType = "Electric";
-                        break;
-                    case 2:
-                        instrumentType = "Acoustic";
-                        break;
-                    default:
-                        instrumentType = "Hybrid";
-                        break;
-                }
-            }
-        }
-    }
-
-    /*===================================================================================================
-    !!! NEED "IF" STATEMENTS SOMEPLACE!!!
-    SHOULD A CHOICE OF ELECTRIC, ACOUSTIC, OR HYBRID IS MADE,
-    AN IF STATEMENT CAN DIRECT TO THE NEXT CHOICE SELECTION UNDER EACH CATEGORY!!
-
-    IF CHOICE IS: 1 Electric = Fender Stratocaster, Gibson Les Paul, Gibson Flying V.
-    IF CHOICE IS: 2 Acoustic = Dreadnought, Parlour Auditorium.
-    IF CHOICE IS: 3 Hybrid
-
-
-TRY THIS! --->> public class Lesson8 {
-    //This method goes over the basic if
-    public void basicIfStatement(int value1, int value2) {
-        System.out.println("Before if Statement");
-        if (value1 == value2) {
-            System.out.println("Values are equal");
-        }// end if
-        System.out.println("After if Statement");
-    }// end method basicIfStatement
-
-    ===================================================================================================*/
-    private void varChoice1() {
-        System.out.println("What style would you prefer?");
-        System.out.println("Press 1 for Groovy Guitar, 2 for Rockin Guitar or 3 for Tenacious D Guitar");
-        if(!verifyNumberInput()) {
-            System.out.println("You have entered an incorrect value. Please try again");
-            varChoice1();
-        } else {
-            if(varType > 3) {
-                System.out.println("You have entered a number larger than 3. Please try again");
-                varChoice1();
-            } else {
-                switch (varType) {
-                    case 1:
-                        thingType = "Groovy Guitar";
-                        break;
-                    case 2:
-                        thingType = "Rockin Guitar";
-                        break;
-                    default:
-                        thingType = "Tenacious D Guitar";
-                        break;
-                }
-            }
-        }
-    }
-
-    private void shipSize() {
-        System.out.println("How many guitars would you like?");
-        in = new Scanner(System.in);
-        isValueRight = false;
-        try {
-            orderSize = in.nextInt();
-        } catch (InputMismatchException ex) {
-            System.out.println("You have entered an incorrect value. Please try again");
-            shipSize();
-        }
     }
 
     private boolean verifyNumberInput() {
