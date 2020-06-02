@@ -64,7 +64,7 @@ public class GuitarOrder {
 
     private void varChoice2() {
         System.out.println("What style would you prefer?");
-        System.out.println("Press 1 for Fender Stratocaster, 2 for Gibson Les Paul or 3 for Gibson Flying V");
+        System.out.println("Press 1 for Fender Stratocaster:$700, 2 for Gibson Les Paul:$600 or 3 for Gibson Flying V:$1200");
         if(!verifyNumberInput()) {
             System.out.println("You have entered an incorrect value. Please try again");
             varChoice2();
@@ -75,13 +75,13 @@ public class GuitarOrder {
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "$700 Fender Stratocaster - model#EG6400, UPC# 1132438488";
+                        thingType = "Fender Stratocaster - model#EG6400, UPC# 1132438488";
                         break;
                     case 2:
-                        thingType = "$600 Gibson Les Paul - model#EG7400, UPC# 1135327446";
+                        thingType = "Gibson Les Paul - model#EG7400, UPC# 1135327446";
                         break;
                     default:
-                        thingType = "$1200 Gibson Flying V - model#EG8600, UPC# 1136433398";
+                        thingType = "Gibson Flying V - model#EG8600, UPC# 1136433398";
                         break;
 
                 }
@@ -91,7 +91,7 @@ public class GuitarOrder {
 
     private void varChoice3() {
         System.out.println("What style would you prefer?");
-        System.out.println("Press 1 for Dreadnaught, 2 for Parlour or 3 for Auditorium");
+        System.out.println("Press 1 for Dreadnaught:$200, 2 for Parlour:$250 or 3 for Auditorium:$400");
         if(!verifyNumberInput()) {
             System.out.println("You have entered an incorrect value. Please try again");
             varChoice3();
@@ -102,13 +102,13 @@ public class GuitarOrder {
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "$200 Dreadnought - model#  AG3219, UPC# 3534019753";
+                        thingType = "Dreadnought - model#AG3219, UPC# 3534019753";
                         break;
                     case 2:
-                        thingType = "$250 Parlour - model# AG3319, UPC# 3536528647";
+                        thingType = "Parlour - model#AG3319, UPC# 3536528647";
                         break;
                     default:
-                        thingType = "$400 Auditorium - model# AG4019, UPC# 3538607326";
+                        thingType = "Auditorium - model#AG4019, UPC# 3538607326";
                         break;
 
                 }
@@ -117,10 +117,24 @@ public class GuitarOrder {
     }
 
     private void varChoice4() {
-        System.out.println("You have chosen our specialty Hybrid guitar. Congratulations!");
-        thingType = "$2000 Acoustic/electric hybrid - model# HB00001,  UPC# 3538600001";
+        System.out.println("Our specialty hybrid guitar is $2000.");
+        System.out.println("Would you like to proceed. Y for yes, N for no.");
+        String val = in.next();
+        switch (val) {
+            case "Y":
+            case "y":
+                thingType = "$2000 Acoustic/electric hybrid - model# HB00001,  UPC# 3538600001";
+                System.out.println("You have chosen our specialty Hybrid guitar. Congratulations!");
+                break;
+            case "N":
+            case "n":
+                varChoice();
+                break;
+            default:
+                System.out.println("You have entered an incorrect value. Please try again");
+                break;
     }
-
+}
     /*private void shipSize() {
         System.out.println("How many guitars would you like?");
         in = new Scanner(System.in);
