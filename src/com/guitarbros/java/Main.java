@@ -13,13 +13,15 @@ public class Main {
         GuitarOrder kiosk = new GuitarOrder();
         kiosk.welcomeMessage();
         testPrintOut();
+
+
     }
 
     static void testPrintOut() {
         // create your own custom list
         // pass the list to the receipt to test the receipt only.
         List<Guitar> myGuitar = new ArrayList<>();
+        GuitarReceipt receipt = new GuitarReceipt(myGuitar);
 
-        DisplayReceipt receipt = new DisplayReceipt(myGuitar);
     }
 }

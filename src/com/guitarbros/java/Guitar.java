@@ -17,19 +17,17 @@ public class Guitar {
     protected void setGuitarType(String value) {
         guitarType = value;
     }
-
     protected String getGuitarType() {
         return guitarType;
     }
 
+
     protected void setThingType(String value) {
         thingType = value;
     }
-
     protected String getThingType() {
         return thingType;
     }
-
 
     protected void setorderSize(int value) {
         guitarCount = value;
@@ -40,4 +38,6 @@ public class Guitar {
 
 
 }
+
+
 

@@ -20,13 +20,14 @@ public class GuitarOrder {
 
     public void welcomeMessage() {
         System.out.println("Welcome to Guitar Bros.");
-        System.out.println("We specialize in Guitars");
+        System.out.println("We specialize in Guitars.");
         buildHouse();
     }
 
     private void buildHouse() {
-        System.out.println("Your dream guitar is waiting");
+        System.out.println("Your dream guitar is waiting.");
         varChoice();
+        shipSize();
         myOrder.add(new Guitar(instrumentType,thingType,orderSize));
         orderDone();
     }
@@ -135,7 +136,7 @@ public class GuitarOrder {
                 break;
     }
 }
-    /*private void shipSize() {
+    private void shipSize() {
         System.out.println("How many guitars would you like?");
         in = new Scanner(System.in);
         isValueRight = false;
@@ -145,17 +146,19 @@ public class GuitarOrder {
             System.out.println("You have entered an incorrect value. Please try again");
             shipSize();
         }
-    }*/
+    }
+
     private void printResult() {
         System.out.println("THANK YOU");
         System.out.println("Your guitar order has the following: ");
         for (Guitar myGuitar : myOrder) {
-
-            //System.out.println(myGuitar.getorderSize() +" guitars ");
-            //System.out.println(myGuitar.getGuitarType() + "");
+//***************************************************************************/
+            System.out.println(myGuitar.getorderSize() +" guitars ");
+            System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
+//***************************************************************************/
+            }
         }
-    }
 
     private void orderDone() {
         System.out.println("Does this complete your order? Y for yes, N for no");
