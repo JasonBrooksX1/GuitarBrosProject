@@ -148,17 +148,58 @@ public class GuitarOrder {
         }
     }
 
-    private void printResult() {
+/*   private void printResult() {
         System.out.println("THANK YOU");
         System.out.println("Your guitar order has the following: ");
         for (Guitar myGuitar : myOrder) {
-//***************************************************************************/
+
             System.out.println(myGuitar.getorderSize() +" guitars ");
             System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
-//***************************************************************************/
-            }
+*/
+
+private void showStarBorder() {
+    for (int i = 0; i < 92; i++) {
+        System.out.print("*");
+    }
+}
+private void printResult() {
+            showStarBorder();
+            String company = String.format("%51s", "Guitar Bros");
+            String address = String.format("%54s", "777 Awesome Avenue");
+            String cityState = String.format("%54s", "Showcase City, MO");
+            System.out.println();
+            System.out.println(company);
+            System.out.println(address);
+            System.out.println(cityState);
+            showStarBorder();
+            showColumns();
         }
+
+
+        private void showColumns () {
+            for (Guitar myGuitar : myOrder) {
+                String quantity = String.format("%5s", "QTY");
+                String price = String.format("%15s", "PRICE");
+                String GuitarName = String.format("%25s", "Guitar Name");
+                String GuitarType = String.format("%15s", "Guitar Type");
+                String Model = String.format("%15s", "Model#");
+                String UPC = String.format("%15s", "UPC");
+                System.out.println();
+                System.out.print(quantity);
+                System.out.print(price);
+                System.out.print(GuitarName);
+                System.out.print(GuitarType);
+                System.out.print(Model);
+                System.out.println(UPC);
+                System.out.println(myGuitar.getorderSize());
+                System.out.println(myGuitar.getGuitarType() + "");
+                System.out.println(myGuitar.getThingType() + "");
+            }
+
+            showStarBorder();
+        }
+
 
     private void orderDone() {
         System.out.println("Does this complete your order? Y for yes, N for no");
