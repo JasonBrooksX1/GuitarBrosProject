@@ -27,7 +27,7 @@ public class GuitarOrder {
     private void buildHouse() {
         System.out.println("Your dream guitar is waiting.");
         varChoice();
-        shipSize();
+        //shipSize();
         myOrder.add(new Guitar(instrumentType,thingType,orderSize));
         orderDone();
     }
@@ -76,13 +76,13 @@ public class GuitarOrder {
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "Fender Stratocaster - model#EG6400, UPC# 1132438488";
+                        thingType = "$700 - Fender Stratocaster - Electric - #EG6400 - 1132438488";
                         break;
                     case 2:
-                        thingType = "Gibson Les Paul - model#EG7400, UPC# 1135327446";
+                        thingType = "$600 - Gibson Les Paul - Electric- #EG7400 - 1135327446";
                         break;
                     default:
-                        thingType = "Gibson Flying V - model#EG8600, UPC# 1136433398";
+                        thingType = "$1,200 - Gibson Flying V - Electric- #EG8600 - 1136433398";
                         break;
 
                 }
@@ -103,13 +103,13 @@ public class GuitarOrder {
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "Dreadnought - model#AG3219, UPC# 3534019753";
+                        thingType = "$200 - Dreadnought - Acoustic- #AG3219 - 3534019753";
                         break;
                     case 2:
-                        thingType = "Parlour - model#AG3319, UPC# 3536528647";
+                        thingType = "$400 - Parlour - Acoustic- #AG3319 - 3536528647";
                         break;
                     default:
-                        thingType = "Auditorium - model#AG4019, UPC# 3538607326";
+                        thingType = "$250 - Auditorium - Acoustic- #AG4019 - 3538607326";
                         break;
 
                 }
@@ -124,7 +124,7 @@ public class GuitarOrder {
         switch (val) {
             case "Y":
             case "y":
-                thingType = "$2000 Acoustic/electric hybrid - model# HB00001,  UPC# 3538600001";
+                thingType = "$2000 - Specialty - Acoustic/electric hybrid - #HB00001 - 3538600001";
                 System.out.println("You have chosen our specialty Hybrid guitar. Congratulations!");
                 break;
             case "N":
@@ -136,7 +136,7 @@ public class GuitarOrder {
                 break;
     }
 }
-    private void shipSize() {
+   /* private void shipSize() {
         System.out.println("How many guitars would you like?");
         in = new Scanner(System.in);
         isValueRight = false;
@@ -146,7 +146,7 @@ public class GuitarOrder {
             System.out.println("You have entered an incorrect value. Please try again");
             shipSize();
         }
-    }
+    }*/
 
 /*   private void printResult() {
         System.out.println("THANK YOU");
@@ -159,8 +159,8 @@ public class GuitarOrder {
 */
 
 private void showStarBorder() {
-    for (int i = 0; i < 92; i++) {
-        System.out.print("*");
+    for (int i = 0; i < 54; i++) {
+        System.out.print("\uD83C\uDFB8");
     }
 }
 private void printResult() {
@@ -179,21 +179,21 @@ private void printResult() {
 
         private void showColumns () {
             for (Guitar myGuitar : myOrder) {
-                String quantity = String.format("%5s", "QTY");
-                String price = String.format("%15s", "PRICE");
-                String GuitarName = String.format("%25s", "Guitar Name");
-                String GuitarType = String.format("%15s", "Guitar Type");
-                String Model = String.format("%15s", "Model#");
-                String UPC = String.format("%15s", "UPC");
+                String price = String.format("%5s", "Price");
+                String GuitarName = String.format("%15s", "Guitar Name");
+                String GuitarType = String.format("%15s", "Type");
+                String Model = String.format("%15s", "Model");
+                String UPC = String.format("%15s", "UPC#");
+                String Serial = String.format("%15s", "Serial#");
                 System.out.println();
-                System.out.print(quantity);
                 System.out.print(price);
                 System.out.print(GuitarName);
                 System.out.print(GuitarType);
                 System.out.print(Model);
-                System.out.println(UPC);
-                System.out.println(myGuitar.getorderSize());
-                System.out.println(myGuitar.getGuitarType() + "");
+                System.out.print(UPC);
+                System.out.println(Serial);
+                //System.out.println(myGuitar.getorderSize());
+                //System.out.println(myGuitar.getGuitarType() + "");
                 System.out.println(myGuitar.getThingType() + "");
             }
 
