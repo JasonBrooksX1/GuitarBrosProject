@@ -1,7 +1,6 @@
-
 package com.guitarbros.java;
 
-public class FenderStratocaster implements ElectricInterface {
+public class GibsonLesPaul implements ElectricInterface {
     @Override
     public String getElectronicPickUp() {
         return "Guitar parts of the Electric. ";
