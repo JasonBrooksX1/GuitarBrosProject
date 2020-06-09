@@ -25,11 +25,13 @@ public class Guitar {
         return guitarType;
     }
 
+
     protected void setThingType(String value) {
         thingType = value;
     }
 
     protected String getThingType() {
+        int thing1 = 100;
         return thingType;
     }
 
@@ -46,6 +48,7 @@ public class Guitar {
     }
 
     protected String getThingColor1() {
+        int tColor = 10;
         return thingColor1;
     }
 

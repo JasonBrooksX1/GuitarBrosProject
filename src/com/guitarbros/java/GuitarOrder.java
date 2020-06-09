@@ -168,19 +168,21 @@ public class GuitarOrder {
                         thingColor1 = "No added charge:  Wood Grain";
                         break;
                     case 4:
-                        thingColor1 = "$10          -       RED";
+                        thingColor1 = "$10      -             RED";
                         break;
                     case 5:
-                        thingColor1 = "$10          -       BLUE";
+                        thingColor1 = "$10      -             BLUE";
                         break;
                     default:
-                        thingColor1 = "$10          -       YELLOW";
+                        thingColor1 = "$10      -            YELLOW";
                         break;
 
                 }
             }
         }
     }
+
+
    /* private void shipSize() {
         System.out.println("How many guitars would you like?");
         in = new Scanner(System.in);
@@ -230,6 +232,7 @@ public class GuitarOrder {
             String UPC = String.format("%18s", "UPC#");
             String Serial = String.format("%24s", "Serial#");
             String GuitarColor1 = String.format("%27s", "Color");
+            String total = String.format("%5s", "TOTAL");
             System.out.println();
             System.out.print(price);
             System.out.print(GuitarName);
@@ -242,6 +245,8 @@ public class GuitarOrder {
             //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
             System.out.println(myGuitar.getThingColor1() + "");
+            System.out.print(total);
+            System.out.println();
         }
 
         showStarBorder();
