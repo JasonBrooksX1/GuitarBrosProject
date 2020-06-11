@@ -5,13 +5,29 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class GuitarOrder {
+public class GuitarOrder{
 
+    //private int price = 10;
+    private int total = 0;
+    private int prefixFender = 113243;
+    private int serialFender = 8488;
+    private int prefixLesPaul = 113532;
+    private int serialLesPaul = 7446;
+    private int prefixFlyV = 113643;
+    private int serialFlyV = 3398;
+    private int prefixDreadnought = 353401;
+    private int serialDreadnought = 9753;
+    private int prefixAuditorium = 353860;
+    private int serialAuditorium = 7326;
+    private int prefixParlour = 353652;
+    private int serialParlour = 8647;
+    private int prefixHybrid = 880972;
+    private int serialHybrid = 1234;
     private List<Guitar> myOrder;
     private int orderSize, varType;
     private Scanner in;
     private String instrumentType;
-    private String thingType, thingColor1;
+    private String thingType, thingColor1, thingStrings;
     private boolean isValueRight;
 
     public GuitarOrder() {
@@ -20,28 +36,33 @@ public class GuitarOrder {
 
     public void welcomeMessage() {
         System.out.println("Welcome to Guitar Bros.");
-        System.out.println("We specialize in Guitars.");
+        System.out.println("We specialize in 7 types of Guitars.");
         buildHouse();
     }
 
     private void buildHouse() {
         System.out.println("Your dream guitar is waiting.");
+        showStarBorder();
+        System.out.println("");
+        System.out.println("****** CLICK BELOW TO USE THE MENU SYSTEM. PICK FROM OUR SELECTION OF GUITARS & FEATURES ******");
+        showStarBorder();
+        System.out.println("");
         varChoice();
         //shipSize();
-        myOrder.add(new Guitar(instrumentType,thingType,orderSize,thingColor1));
+        myOrder.add(new Guitar(instrumentType,thingType,orderSize,thingColor1, thingStrings));
         orderDone();
     }
 
 
     private void varChoice() {
-        System.out.println("What guitar type would you prefer?");
-        System.out.println("Press 1 for Electric, 2 for Acoustic or 3 for Hybrid");
+        System.out.println("What GUITAR TYPE would you prefer?");
+        System.out.println("Press (1) for Electric, (2) for Acoustic or (3) for Hybrid");
         if(!verifyNumberInput()) {
-            System.out.println("You have entered an incorrect value. Please try again");
+            System.out.println("**YOU ENTERED INCORRECT VALUE** Try again by pressing (1) (2) or (3).");
             varChoice();
         } else {
             if(varType > 3) {
-                System.out.println("You have entered a number larger than 3. Please try again");
+                System.out.println("!!*YOU HAVE ENTERED A NUMBER LARGER THAN (3)*!! Please try again.");
                 varChoice();
             } else {
                 switch (varType) {
@@ -64,27 +85,30 @@ public class GuitarOrder {
     }
 
     private void varChoice2() {
-        System.out.println("What style would you prefer?");
-        System.out.println("Press 1 for Fender Stratocaster:$700, 2 for Gibson Les Paul:$600 or 3 for Gibson Flying V:$1200");
+        System.out.println("What STYLE would you prefer?");
+        System.out.println("Press (1) for Fender Stratocaster:$700, (2) for Gibson Les Paul:$600 or (3) for Gibson Flying V:$1200");
         if(!verifyNumberInput()) {
-            System.out.println("You have entered an incorrect value. Please try again");
+            System.out.println("**YOU ENTERED INCORRECT VALUE** Try again by pressing (1) (2) or (3).");
             varChoice2();
         } else {
             if(varType > 3) {
-                System.out.println("You have entered a number larger than 3. Please try again");
+                System.out.println("!!*YOU HAVE ENTERED A NUMBER LARGER THAN (3)*!! Please try again.");
                 varChoice2();
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "$700     -     Fender Stratocaster     -    Electric       -      #EG6400     -    1132438488       -       000001";
+                        thingType = "$700     -     Fender Stratocaster     -    Electric       -      #EG6400     -    " + prefixFender + serialFender++;
+                        total = total + 700;
                         varChoice5();
                         break;
                     case 2:
-                        thingType = "$600     -       Gibson Les Paul      -     Electric       -      #EG7400     -    1135327446       -       000002";
+                        thingType = "$600     -       Gibson Les Paul      -     Electric       -      #EG7400     -    " + prefixLesPaul + serialLesPaul++;
+                        total = total + 600;
                         varChoice5();
                         break;
                     default:
-                        thingType = "$1,200     -     Gibson Flying V      -     Electric       -      #EG8600     -    1136433398       -       000003";
+                        thingType = "$1,200     -     Gibson Flying V      -     Electric       -      #EG8600     -    " + prefixFlyV + serialFlyV++;
+                        total = total + 1200;
                         varChoice5();
                         break;
 
@@ -94,27 +118,30 @@ public class GuitarOrder {
     }
 
     private void varChoice3() {
-        System.out.println("What style would you prefer?");
-        System.out.println("Press 1 for Dreadnaught:$200, 2 for Parlour:$250 or 3 for Auditorium:$400");
+        System.out.println("What STYLE would you prefer?");
+        System.out.println("Press (1) for Dreadnaught:$200, (2) for Parlour:$250 or (3) for Auditorium:$400");
         if(!verifyNumberInput()) {
-            System.out.println("You have entered an incorrect value. Please try again");
+            System.out.println("**YOU ENTERED INCORRECT VALUE** Try again by pressing (1) (2) or (3).");
             varChoice3();
         } else {
             if(varType > 3) {
-                System.out.println("You have entered a number larger than 3. Please try again");
+                System.out.println("!!*YOU HAVE ENTERED A NUMBER LARGER THAN (3)*!! Please try again.");
                 varChoice3();
             } else {
                 switch (varType) {
                     case 1:
-                        thingType = "$200       -       Dreadnought      -       Acoustic       -      #AG3219     -    3534019753       -       000004";
+                        thingType = "$200       -       Dreadnought      -       Acoustic       -      #AG3219     -    " + prefixDreadnought + serialDreadnought++;
+                        total = total + 200;
                         varChoice5();
                         break;
                     case 2:
-                        thingType = "$400         -       Parlour        -       Acoustic       -      #AG3319     -    3536528647       -       000005";
+                        thingType = "$400         -       Parlour        -       Acoustic       -      #AG3319     -    " + prefixParlour + serialParlour++;
+                        total = total + 400;
                         varChoice5();
                         break;
                     default:
-                        thingType = "$250           -   Auditorium       -       Acoustic        -     #AG4019     -    3538607326       -       000006";
+                        thingType = "$250           -   Auditorium       -       Acoustic        -     #AG4019     -    " + prefixAuditorium + serialAuditorium++;
+                        total = total + 250;
                         varChoice5();
                         break;
 
@@ -124,13 +151,14 @@ public class GuitarOrder {
     }
 
     private void varChoice4() {
-        System.out.println("Our Hybrid guitar is $2000.");
-        System.out.println("Would you like to proceed. Y for yes, N for no.");
+        System.out.println("Our Hybrid Guitar is $2000.");
+        System.out.println("Would you like to proceed. Press (Y) for yes, (N) for no.");
         String val = in.next();
         switch (val) {
             case "Y":
             case "y":
-                thingType = "$2000      -       Specialty       -         Hybrid       -      #HB00001     -    3538600001      -       000007";
+                thingType = "$2000      -       Specialty       -         Hybrid       -      #HG00001     -    "  + prefixHybrid + serialHybrid++;
+                total = total + 2000;
                 varChoice5();
                 break;
             case "N":
@@ -138,43 +166,82 @@ public class GuitarOrder {
                 varChoice();
                 break;
             default:
-                System.out.println("You have entered an incorrect value. Please try again");
+                System.out.println("**YOU ENTERED INCORRECT VALUE** Try again by pressing (Y) for yes, (N) for no.");
+                varChoice4();
                 break;
         }
     }
 
     private void varChoice5() {
-        System.out.println("What color do you prefer?");
-        System.out.println("Options 1-3 have no added cost");
-        System.out.println("Options 4-6 have $10 cost");
-        System.out.println("Press 1 for Solid Color, 2 for Multi Color or 3 for Wood Grain");
-        System.out.println("Press 4 for RED, 5 for BLUE or 6 for YELLOW");
+        System.out.println("What COLOR do you prefer?");
+        System.out.println("--> Options 1-3 have no added cost");
+        System.out.println("--> Options 4-6 have $10 cost");
+        System.out.println("");
+        System.out.println("Press (1) for Solid Color, (2) for Multi Color or (3) for Wood Grain");
+        System.out.println("Press (4) for RED, (5) for BLUE or (6) for YELLOW");
         if(!verifyNumberInput()) {
-            System.out.println("You have entered an incorrect value. Please try again");
+            System.out.println("**YOU ENTERED INCORRECT VALUE** Try again by pressing (1)(2)(3)(4)(5) or (6).");
             varChoice5();
         } else {
             if(varType > 6) {
-                System.out.println("You have entered a number larger than 6. Please try again");
+                System.out.println("!!*YOU HAVE ENTERED A NUMBER LARGER THAN (6)*!! Please try again.");
                 varChoice5();
             } else {
                 switch (varType) {
                     case 1:
-                        thingColor1 = "No added charge:  Solid White";
+                        thingColor1 = "No added charge:   Solid White";
+                        varChoice6();
                         break;
                     case 2:
-                        thingColor1 = "No added charge:  Multi Color";
+                        thingColor1 = "No added charge:   Multi Color";
+                        varChoice6();
                         break;
                     case 3:
-                        thingColor1 = "No added charge:  Wood Grain";
+                        thingColor1 = "No added charge:    Wood Grain";
+                        varChoice6();
                         break;
                     case 4:
-                        thingColor1 = "$10      -             RED";
+                        thingColor1 = "$10      -            RED";
+                        total = total + 10;
+                        varChoice6();
                         break;
                     case 5:
-                        thingColor1 = "$10      -             BLUE";
+                        thingColor1 = "$10      -            BLUE";
+                        total = total + 10;
+                        varChoice6();
                         break;
                     default:
-                        thingColor1 = "$10      -            YELLOW";
+                        thingColor1 = "$10      -           YELLOW";
+                        total = total + 10;
+                        varChoice6();
+                        break;
+
+                }
+            }
+        }
+    }
+
+    private void varChoice6() {
+        System.out.println("What type of STRINGS would you prefer?");
+        System.out.println("--> Our Nylon strings have no added cost");
+        System.out.println("--> Our Steel strings will be an extra $20");
+        System.out.println("");
+        System.out.println("Press (1) for Nylon strings and (2) for Steel strings.");
+        if(!verifyNumberInput()) {
+            System.out.println("**YOU ENTERED INCORRECT VALUE** Try again by pressing (1) or (2).");
+            varChoice6();
+        } else {
+            if(varType > 2) {
+                System.out.println("!!*YOU HAVE ENTERED A NUMBER LARGER THAN (2)*!! Please try again.");
+                varChoice6();
+            } else {
+                switch (varType) {
+                    case 1:
+                        thingStrings = "No added charge:  Nylon Strings";
+                        break;
+                    default:
+                        thingStrings = "$20      -           Steel ";
+                        total = total + 20;
                         break;
 
                 }
@@ -205,51 +272,62 @@ public class GuitarOrder {
 */
 
     private void showStarBorder() {
-        for (int i = 0; i < 70; i++) {
+        for (int i = 0; i < 55; i++) {
             System.out.print("\uD83C\uDFB8");
         }
     }
     private void printResult() {
         showStarBorder();
-        String company = String.format("%67s", "Guitar Bros");
-        String address = String.format("%70s", "777 Awesome Avenue");
-        String cityState = String.format("%70s", "Showcase City, MO");
+        //---------Main Header----------------------
+        String company = String.format("%55s", "Guitar Bros");
+        String address = String.format("%58s", "777 Awesome Avenue");
+        String cityState = String.format("%58s", "Showcase City, MO");
+        String finalTotal = String.format("%5s", "TOTAL:") + "   $" + total;
         System.out.println();
         System.out.println(company);
         System.out.println(address);
         System.out.println(cityState);
         showStarBorder();
+        //------Column Header--------------------------
+        String price = String.format("%5s", "PRICE");
+        String GuitarName = String.format("%25s", "GUITAR NAME");
+        String GuitarType = String.format("%20s", "TYPE");
+        String Model = String.format("%22s", "MODEL#");
+        //String UPC = String.format("%18s", "UPC#");
+        //---------combined serial and UPC-----------------------
+        String Serial = String.format("%22s", "UPC SERIAL#");
+        String GuitarColor1 = String.format("%32s", "-Color/Strings-");
+        System.out.println();
+        System.out.print(price);
+        System.out.print(GuitarName);
+        System.out.print(GuitarType);
+        System.out.print(Model);
+        //System.out.print(UPC);
+        System.out.println(Serial);
+        System.out.println(GuitarColor1);
+        showStarBorder();
+        System.out.println();
+        //----------------------------
         showColumns();
+        System.out.println();
+        System.out.println(finalTotal);
+
+        showStarBorder();
+
     }
 
 
     private void showColumns () {
         for (Guitar myGuitar : myOrder) {
-            String price = String.format("%5s", "Price");
-            String GuitarName = String.format("%25s", "Guitar Name");
-            String GuitarType = String.format("%20s", "Type");
-            String Model = String.format("%22s", "Model");
-            String UPC = String.format("%18s", "UPC#");
-            String Serial = String.format("%24s", "Serial#");
-            String GuitarColor1 = String.format("%27s", "Color");
-            String total = String.format("%5s", "TOTAL");
-            System.out.println();
-            System.out.print(price);
-            System.out.print(GuitarName);
-            System.out.print(GuitarType);
-            System.out.print(Model);
-            System.out.print(UPC);
-            System.out.println(Serial);
-            System.out.println(GuitarColor1);
-            //System.out.println(myGuitar.getorderSize());
+            //System.out.println(myGuitar.getOrderSize());
             //System.out.println(myGuitar.getGuitarType() + "");
             System.out.println(myGuitar.getThingType() + "");
             System.out.println(myGuitar.getThingColor1() + "");
-            System.out.print(total);
+            System.out.println(myGuitar.getThingStrings() + "");
             System.out.println();
         }
 
-        showStarBorder();
+
     }
 
 
@@ -266,7 +344,8 @@ public class GuitarOrder {
                 buildHouse();
                 break;
             default:
-                System.out.println("You have entered an incorrect value. Please try again");
+                System.out.println("**YOU ENTERED INCORRECT VALUE** Try again by pressing (Y) for yes, (N) for no.");
+                orderDone();
                 break;
 
         }

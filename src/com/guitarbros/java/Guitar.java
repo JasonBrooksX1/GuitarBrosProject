@@ -6,14 +6,17 @@ public class Guitar {
     private int guitarCount;
     private String thingType;
     private String thingColor1;
+    private String thingStrings;
 
 
-    public Guitar(String guitarType, String thingType, int guitarCount, String thingColor1) {
+
+    public Guitar(String guitarType, String thingType, int guitarCount, String thingColor1, String thingStrings) {
 
         this.guitarType = guitarType;
         this.guitarCount = guitarCount;
         this.thingType = thingType;
         this.thingColor1 = thingColor1;
+        this.thingStrings = thingStrings;
     }// end constructor*/
 
 
@@ -50,6 +53,14 @@ public class Guitar {
     protected String getThingColor1() {
         int tColor = 10;
         return thingColor1;
+    }
+
+    protected void setThingStrings(String value) {
+        thingStrings = value;
+    }
+
+    protected String getThingStrings() {
+        return thingStrings;
     }
 
 }
